@@ -26,6 +26,12 @@ const btngenerate = document.querySelector('btngenerate')
 const btncancel = document.querySelector('btncancel')
 
 
+btngenerate.addEventListener('click', function(event){
+  event.preventDefault;
+  console.log(name.value, km.value, età.value);
+
+})
+
 price = km * pricekm
 
 
