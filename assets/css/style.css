@@ -4,11 +4,11 @@
   box-sizing: border-box;
 }
 
+body{
+  background-color: #F5EEE6;
+}
 /* UTILITIES */
 
-/* .debug{
-  border: 1px solid red;
-} */
 
 
 
@@ -17,6 +17,34 @@ main{
 }
 
 main .info{
-  border:2px solid grey;
+  background-color: #F3D7CA ;
+  border:2px solid #E6A4B4;
   border-radius: 10px;
+  height: 600px;
+}
+
+
+h1,
+h4,
+label,
+strong,
+.gif p{
+  color: #E6A4B4;
+}
+
+h1{
+  font-weight: 900;
+}
+
+h4,
+label,
+strong{
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.btngenerate,
+.btncancel{
+  background-color: #E6A4B4 !important;
+  border-color: #F3D7CA !important;
 }

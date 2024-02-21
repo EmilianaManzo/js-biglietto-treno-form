@@ -24,7 +24,9 @@ name = document.querySelector('.name');
 km = document.querySelector('.km');
 età = document.querySelector('.età');
 colHidden = document.querySelector('.colhidden')
+texHidden = document.querySelector('.texhidden')
 form = document.querySelector('form');
+gif= document.querySelector('.gif');
 
 
 // bottoni
@@ -42,6 +44,8 @@ btngenerate.addEventListener ('click', function(event){
   console.log(name.value, km.value, età.value, price);
 
   colHidden.classList.remove('d-none')
+  texHidden.classList.remove('d-none')
+  gif.classList.add('d-none')
 
   if(name.value === ''){
     alert('Attenzione! Inserire nome e cognome.')
@@ -65,20 +69,18 @@ btngenerate.addEventListener ('click', function(event){
   }
 
   carriage=Math.floor(Math.random() * 10) + 1;
-  code=Math.floor(Math.random() * 1000) + 1;
+  code=Math.floor(Math.random() * 100000) + 1;
   console.log(carriage, code);
 
 
 
-  document.querySelector('.passenger').innerHTML += '' + name.value 
-  document.querySelector('.offer').innerHTML += '' + message
-  document.querySelector('.cost').innerHTML += '' + price.toFixed(2) + '&euro;'
-  document.querySelector('.carriage').innerHTML += '' + carriage
-  document.querySelector('.code').innerHTML += '' + code
+  document.querySelector('.passenger').innerHTML += " " + name.value 
+  document.querySelector('.offer').innerHTML += " " + message
+  document.querySelector('.cost').innerHTML += " " + price.toFixed(2) + '&euro;'
+  document.querySelector('.carriage').innerHTML += " " + carriage
+  document.querySelector('.code').innerHTML += " " + code
 
 })
-
-  
 
 
 
@@ -87,6 +89,8 @@ btncancel.addEventListener ('click', function(){
   km.value = '';
   età.value= '';
   colHidden.classList.add('d-none')
+  texHidden.classList.add('d-none')
+  gif.classList.remove('d-none')
 })
 
 
