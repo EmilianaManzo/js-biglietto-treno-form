@@ -12,5 +12,5 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 ## Svolgimento
 1. dichiarare  tutte le variabili (km, età, prezzo)
 2. dichiarare dati di partenza (prezzo al km e percentuali di sconto)
-3. collegare variabile name, km ed età con i propri input
+3. collegare variabile name, km ed età con i propri input e i bottoni
 4. creo le condizioni
