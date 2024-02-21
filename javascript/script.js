@@ -5,7 +5,6 @@ let minorenne;
 let standard;
 let over65;
 let price;
-let finalPrice;
 let message = '';
 
 
@@ -19,25 +18,57 @@ console.log(priceKm,discountYounger,discountSenior );
 
 // richiamo elementi html
 // input 
-name = document.querySelector('name');
-km = document.querySelector('km');
-minorenne = document.querySelector('minorenne');
-standard = document.querySelector('standard');
-over65 = document.querySelector('over65');
+name = document.querySelector('.name');
+km = document.querySelector('.km');
+età = document.querySelector('.età');
+colHidden = document.querySelector('.colhidden')
+
+
 
 // bottoni
-const btngenerate = document.querySelector('btngenerate');
-const btncancel = document.querySelector('btncancel');
+const btngenerate = document.querySelector('.btngenerate');
+const btncancel = document.querySelector('.btncancel');
+
+
 
 
 btngenerate.addEventListener ('click', function(event){
-  event.preventDefault;
-  console.log(name.value, km.value, minorenne.value, maggiorenne.value, over65.value);
+  event.preventDefault
+  price = priceKm * km.value;
+  message = 'Biglietto standard'
+  console.log(name.value, km.value, età.value, price);
 
+  colHidden.classList.remove('d-none')
+  
+  if(età.value === minorenne){
+  price = (price * discountYounger/100)
+  message = 'Biglietto minori'
+
+  } else if (età.value === over65){
+  price = (price * discountSenior/100)
+  message = 'Biglietto over 65'
+  
+  }
+  document.querySelector('.passenger').innerHTML += name.value 
+  document.querySelector('.offer').innerHTML += message
+  document.querySelector('.cost').innerHTML += price
 })
 
-price = km * pricekm
-finalPrice = price
+btncancel.addEventListener ('click', function(){
+  name.value = '';
+  km.value = '';
+  età.value= '';
+  colHidden.classList.add('d-none')
+})
+
+
+
+
+
+
+
+
+
 
 
 
