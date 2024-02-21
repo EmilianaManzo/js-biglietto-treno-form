@@ -10,10 +10,7 @@ Sulla base di queste informazioni dovrà calcolare il prezzo totale del bigliett
 - va applicato uno sconto del 40% per gli over 65.
 
 ## Svolgimento
-1. prompt chilometri da percorrere da inserire in una variabile 
-2. prompt età passeggero
-3. inserisco una variabile che indica il prezzo del biglietto al km
-4. calcolo il prezzo totale del biglietto
-5. creo delle variabili del prezzo al km meno la percentuale di sconto 
-6. creo delle condizionali 
-7. stampo il risultato in pagina
+1. dichiarare  tutte le variabili (km, età, prezzo)
+2. dichiarare dati di partenza (prezzo al km e percentuali di sconto)
+3. collegare variabile name, km ed età con i propri input
+4. creo le condizioni
