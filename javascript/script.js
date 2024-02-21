@@ -40,11 +40,6 @@ price = km * pricekm
 finalPrice = price
 
 
-if (minorenne){
-  finalPrice -= ()
-}
-
-
 
 
 
