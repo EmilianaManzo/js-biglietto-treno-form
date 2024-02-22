@@ -6,9 +6,9 @@ let standard;
 let over65;
 let price;
 let message = '';
-let form;
 let carriage;
 let code;
+let isValidForm = true;
 
 // dichiaro dati di partenza
 const priceKm = 0.21 
@@ -17,16 +17,6 @@ const discountSenior = 40
 
 
 console.log(priceKm,discountYounger,discountSenior );
-
-// richiamo elementi html
-// input 
-name = document.querySelector('.name');
-km = document.querySelector('.km');
-età = document.querySelector('.età');
-colHidden = document.querySelector('.colhidden')
-texHidden = document.querySelector('.texhidden')
-form = document.querySelector('form');
-gif= document.querySelector('.gif');
 
 
 // bottoni
@@ -39,46 +29,72 @@ const btncancel = document.querySelector('.btncancel');
 
 btngenerate.addEventListener ('click', function(event){
   event.preventDefault
-  price = parseInt(priceKm * km.value);
+  
+  // richiamo elementi html con i rispettivi value  
+  // input 
+  name = document.querySelector('.name').value;
+  km = parseInt(document.querySelector('.km').value) ;
+  età = document.querySelector('.età').value;
+  // add/remove variabili 
+  colHidden = document.querySelector('.colhidden')
+  texHidden = document.querySelector('.texhidden')
+  gif= document.querySelector('.gif');
+
+
+
+  price = parseInt(priceKm * km);
   message = 'Biglietto standard'
-  console.log(name.value, km.value, età.value, price);
+  
+  console.log(name, km, età, price);
 
-  colHidden.classList.remove('d-none')
-  texHidden.classList.remove('d-none')
-  gif.classList.add('d-none')
+  console.log(isNaN(km));
+  isValidForm = !isNaN(km)
 
-  if(name.value === ''){
-    alert('Attenzione! Inserire nome e cognome.')
-  } else if (km.value === ''){
-    alert('Attenzione! Inserire km.')
+  if(isValidForm){
+    colHidden.classList.remove('d-none')
+    texHidden.classList.remove('d-none')
+    gif.classList.add('d-none')
 
-  }if(età.value === ''){
-    alert('Attenzione! Scegliere range età.')
+
+
+    if(name.value === ''){
+      alert('Attenzione! Inserire nome e cognome.')
+    } else if (km.value === ''){
+      alert('Attenzione! Inserire km.')
+
+    }if(età.value === ''){
+      alert('Attenzione! Scegliere range età.')
+    }
+
+    
+    
+    if(età.value === minorenne){
+    price = (price * discountYounger/100)
+    message = 'Biglietto minori'
+
+    } else if (età.value === over65){
+    price = (price * discountSenior/100)
+    message = 'Biglietto over 65'
+    
+    }
+
+    carriage=Math.floor(Math.random() * 10) + 1;
+    code=Math.floor(Math.random() * 100000) + 1;
+    console.log(carriage, code);
+
+
+
+    document.querySelector('.passenger').innerHTML += " " + name.value 
+    document.querySelector('.offer').innerHTML += " " + message
+    document.querySelector('.cost').innerHTML += " " + price.toFixed(2) + '&euro;'
+    document.querySelector('.carriage').innerHTML += " " + carriage
+    document.querySelector('.code').innerHTML += " " + code
+
+  }else {
+    alert('Inserire dati corretti');
   }
 
-  
-  
-  if(età.value === minorenne){
-  price = (price * discountYounger/100)
-  message = 'Biglietto minori'
 
-  } else if (età.value === over65){
-  price = (price * discountSenior/100)
-  message = 'Biglietto over 65'
-  
-  }
-
-  carriage=Math.floor(Math.random() * 10) + 1;
-  code=Math.floor(Math.random() * 100000) + 1;
-  console.log(carriage, code);
-
-
-
-  document.querySelector('.passenger').innerHTML += " " + name.value 
-  document.querySelector('.offer').innerHTML += " " + message
-  document.querySelector('.cost').innerHTML += " " + price.toFixed(2) + '&euro;'
-  document.querySelector('.carriage').innerHTML += " " + carriage
-  document.querySelector('.code').innerHTML += " " + code
 
 })
 
